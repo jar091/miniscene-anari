@@ -1,0 +1,4 @@
+[submodule "external/miniScene"]
+	path = external/miniScene
+	url = https://github.com/jar091/miniScene
+	branch = mjar/devel
