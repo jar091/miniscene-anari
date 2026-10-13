@@ -1,0 +1,115 @@
+{
+  "info": {
+    "name": "MINISCENE_DEVICE",
+    "type": "device",
+    "dependencies": [
+      "anari_core_1_0",
+      "anari_core_objects_base_1_0",
+      "khr_camera_depth_of_field",
+      "khr_camera_orthographic",
+      "khr_camera_perspective",
+      "khr_frame_accumulation",
+      "khr_geometry_triangle",
+      "khr_instance_transform",
+      "khr_light_directional",
+      "khr_light_hdri",
+      "khr_light_point",
+      "khr_light_quad",
+      "khr_light_spot",
+      "khr_material_matte",
+      "khr_material_physically_based",
+      "khr_renderer_ambient_light",
+      "khr_renderer_background_color",
+      "khr_renderer_background_image",
+      "khr_sampler_image1d",
+      "khr_sampler_image2d",
+      "khr_sampler_image3d",
+      "khr_sampler_transform"
+    ]
+  },
+  "objects": [
+    {
+      "type": "ANARI_DEVICE",
+      "parameters": [
+        {
+          "name": "fileName",
+          "types": ["ANARI_STRING"],
+          "tags": [],
+          "default": "scene.mini",
+          "description": "the miniScene file which is written when a frame is rendered"
+        },
+        {
+          "name": "spotLight",
+          "types": ["ANARI_STRING"],
+          "tags": [],
+          "default": "power",
+          "values": ["power", "intensity", "none"],
+          "description": "quad light written for a spot light: with the power of the spot, with the intensity of the spot on its axis, or none"
+        },
+        {
+          "name": "pointLight",
+          "types": ["ANARI_STRING"],
+          "tags": [],
+          "default": "cube",
+          "values": ["cube", "none"],
+          "description": "lights written for a point light: a cube of six quad lights with the power of the point light, or none"
+        }
+      ]
+    },
+    {
+      "type": "ANARI_RENDERER",
+      "name": "default",
+      "description": "writes the scene; its parameters go to the report next to the file",
+      "parameters": [
+        {
+          "name": "pixelSamples",
+          "types": ["ANARI_INT32"],
+          "tags": [],
+          "description": "samples per pixel and frame, for the report"
+        },
+        {
+          "name": "denoise",
+          "types": ["ANARI_BOOL"],
+          "tags": [],
+          "description": "whether the image is denoised, for the report"
+        },
+        {
+          "name": "maxBounce",
+          "types": ["ANARI_INT32"],
+          "tags": [],
+          "description": "maximum number of bounces of a path, for the report"
+        },
+        {
+          "name": "maxDiffuseBounce",
+          "types": ["ANARI_INT32"],
+          "tags": [],
+          "description": "maximum number of diffuse bounces of a path, for the report"
+        },
+        {
+          "name": "maxGlossyBounce",
+          "types": ["ANARI_INT32"],
+          "tags": [],
+          "description": "maximum number of glossy bounces of a path, for the report"
+        },
+        {
+          "name": "maxTransmissionBounce",
+          "types": ["ANARI_INT32"],
+          "tags": [],
+          "description": "maximum number of transmission bounces of a path, for the report"
+        },
+        {
+          "name": "clampDirect",
+          "types": ["ANARI_FLOAT32"],
+          "tags": [],
+          "description": "limit of the direct light of a sample, zero for none, for the report"
+        },
+        {
+          "name": "clampIndirect",
+          "types": ["ANARI_FLOAT32"],
+          "tags": [],
+          "description": "limit of the indirect light of a sample, zero for none, for the report"
+        }
+      ]
+    }
+  ]
+}
